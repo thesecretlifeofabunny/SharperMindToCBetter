@@ -70,7 +70,7 @@ public class LinqLearningTests
         // Assert
         Assert.That(returnedList is [44, 2, 22]);
     }
-    
+
     [Test]
     // Naming Convention - ClassName_MethodName_ExpectedResult
     public static void LinqLearning_GetAllEvenNumbersFromQueryVersion_NoValuesFromEmptyList()
@@ -201,7 +201,7 @@ public class LinqLearningTests
         // Assert
         Assert.That(returnedList is [1]);
     }
-    
+
     [Test]
     public static void LinqLearning_GetAllUnderAverageNumbersQueryVersion_EmptyList()
     {

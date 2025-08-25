@@ -70,6 +70,72 @@ public class LinqLearningTests
         // Assert
         Assert.That(returnedList is [44, 2, 22]);
     }
+    
+    [Test]
+    // Naming Convention - ClassName_MethodName_ExpectedResult
+    public static void LinqLearning_GetAllEvenNumbersFromQueryVersion_NoValuesFromEmptyList()
+    {
+        // Arrange
+        List<int> emptyList = [];
+
+        // ACT       
+        var returnedList = LinqLearning.GetAllEvenNumbersFromQueryVersion(emptyList);
+
+        // Assert
+        Assert.That(returnedList is []);
+    }
+
+    [Test]
+    public static void LinqLearning_GetAllEvenNumbersFromQueryVersion_EmptyListFromListOfSingleOddNumber()
+    {
+        // Arrange
+        List<int> oneOddNumberList = [1];
+
+        // ACT       
+        var returnedList = LinqLearning.GetAllEvenNumbersFromQueryVersion(oneOddNumberList);
+
+        // Assert
+        Assert.That(returnedList is []);
+    }
+
+    [Test]
+    public static void LinqLearning_GetAllEvenNumbersFromQueryVersion_SameListFromListOfSingleEvenNumber()
+    {
+        // Arrange
+        List<int> oneEvenNumberList = [2];
+
+        // ACT       
+        var returnedList = LinqLearning.GetAllEvenNumbersFromQueryVersion(oneEvenNumberList);
+
+        // Assert
+        Assert.That(returnedList is [2]);
+    }
+
+    [Test]
+    public static void LinqLearning_GetAllEvenNumbersFromQueryVersion_ReturnsOnlyEvenNumberFromOneEvenOneOddList()
+    {
+        // Arrange
+        List<int> oneEvenOneOddNumberList = [1, 2];
+
+        // ACT       
+        var returnedList = LinqLearning.GetAllEvenNumbersFromQueryVersion(oneEvenOneOddNumberList);
+
+        // Assert
+        Assert.That(returnedList is [2]);
+    }
+
+    [Test]
+    public static void LinqLearning_GetAllEvenNumbersFromQueryVersion_AllEvenFromMixedList()
+    {
+        // Arrange
+        List<int> oneEvenOneOddNumberList = [5, 44, 2, 21, 22];
+
+        // ACT       
+        var returnedList = LinqLearning.GetAllEvenNumbersFromQueryVersion(oneEvenOneOddNumberList);
+
+        // Assert
+        Assert.That(returnedList is [44, 2, 22]);
+    }
 
     [Test]
     public static void LinqLearning_GetAllUnderAverageNumbers_EmptyList()
@@ -131,6 +197,71 @@ public class LinqLearningTests
 
         // ACT       
         var returnedList = LinqLearning.GetAllUnderAverageNumbers(singleElement);
+
+        // Assert
+        Assert.That(returnedList is [1]);
+    }
+    
+    [Test]
+    public static void LinqLearning_GetAllUnderAverageNumbersQueryVersion_EmptyList()
+    {
+        // Arrange
+        List<int> emptyList = [];
+
+        // ACT       
+        var returnedList = LinqLearning.GetAllUnderAverageNumbersQueryVersion(emptyList);
+
+        // Assert
+        Assert.That(returnedList is []);
+    }
+
+    [Test]
+    public static void LinqLearning_GetAllUnderAverageNumbersQueryVersion_EmptyListFromSingleElement()
+    {
+        // Arrange
+        List<int> singleElement = [1];
+
+        // ACT       
+        var returnedList = LinqLearning.GetAllUnderAverageNumbersQueryVersion(singleElement);
+
+        // Assert
+        Assert.That(returnedList is []);
+    }
+
+    [Test]
+    public static void LinqLearning_GetAllUnderAverageNumbersQueryVersion_OneElementFromTwoElements()
+    {
+        // Arrange
+        List<int> singleElement = [1, 2];
+
+        // ACT       
+        var returnedList = LinqLearning.GetAllUnderAverageNumbersQueryVersion(singleElement);
+
+        // Assert
+        Assert.That(returnedList is [1]);
+    }
+
+    [Test]
+    public static void LinqLearning_GetAllUnderAverageNumbersQueryVersion_NineSmallNumbersFromNineSmallNumbersAndOneLargeNumber()
+    {
+        // Arrange
+        List<int> singleElement = [1, 1, 1, 1, 1, 1, 1, 1, 1, 100];
+
+        // ACT       
+        var returnedList = LinqLearning.GetAllUnderAverageNumbersQueryVersion(singleElement);
+
+        // Assert
+        Assert.That(returnedList is [1, 1, 1, 1, 1, 1, 1, 1, 1]);
+    }
+
+    [Test]
+    public static void LinqLearning_GGetAllUnderAverageNumbersQueryVersion_OneSmallNumbersFromOneSmallNumbersAndTenLargeNumber()
+    {
+        // Arrange
+        List<int> singleElement = [1, 100, 100, 100, 100, 100, 100, 100, 100, 100];
+
+        // ACT       
+        var returnedList = LinqLearning.GetAllUnderAverageNumbersQueryVersion(singleElement);
 
         // Assert
         Assert.That(returnedList is [1]);

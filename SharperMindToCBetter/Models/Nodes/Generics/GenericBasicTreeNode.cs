@@ -1,6 +1,6 @@
 namespace SharperMindToCBetter.Models.Nodes.Generics;
 
-public class GenericBasicTreeNode<T> : GenericNode<T> where T: GenericNode<T>, IComparable<T>
+public class GenericBasicTreeNode<T> : GenericNode<T> where T : GenericNode<T>, IComparable<T>
 {
     public GenericBasicTreeNode<T>? Left { get; set; }
     public GenericBasicTreeNode<T>? Right { get; set; }

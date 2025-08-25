@@ -21,5 +21,5 @@ public class BasicTreeNode : Node
         };
         Console.WriteLine(printNode);
     }
-    
+
 }

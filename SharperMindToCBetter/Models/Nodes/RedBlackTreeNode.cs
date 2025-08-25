@@ -9,7 +9,7 @@ public class RedBlackTreeNode : BasicTreeNode
     public override void PrintNode()
     {
         var printNode = $"Value: {Value} Colour: {Colour}";
-        
+
         printNode += (Left is null) switch
         {
             true => $" Left: Null",
@@ -21,7 +21,7 @@ public class RedBlackTreeNode : BasicTreeNode
             true => $" Right: Null",
             false => $" Right: {Right.Value}"
         };
-        
+
         Console.WriteLine(printNode);
     }
 }

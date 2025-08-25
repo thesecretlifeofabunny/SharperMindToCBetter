@@ -62,9 +62,9 @@ public class CyclicalLinkedList
 
             return;
         }
-        
+
         current = current.Next;
-        while (current is not null  && current != Head)
+        while (current is not null && current != Head)
         {
             if (current.Value != value)
             {
@@ -93,27 +93,27 @@ public class CyclicalLinkedList
         var count = 0;
         var current = Head;
         List<int> list = [];
-        
+
         if (current is null)
         {
             Console.WriteLine("Cannot list node because cyclical linked list is empty.");
             return list;
         }
-        
+
         Console.WriteLine("Count: {0} with Value: {1}", count, current.Value);
         list.Add(current.Value);
         current = current.Next;
         count++;
-        
-        while ( current != Head && current is not null )
+
+        while (current != Head && current is not null)
         {
             list.Add(current.Value);
             Console.WriteLine("Count: {0} with Value: {1}", count, current.Value);
             current = current.Next;
             count++;
         }
-        
+
         return list;
     }
-    
+
 }

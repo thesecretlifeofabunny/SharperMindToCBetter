@@ -2,12 +2,12 @@ using SharperMindToCBetter.Models.Nodes.Generics;
 
 namespace SharperMindToCBetter.Models.Trees.Generics;
 
-public class BinarySearchTree<T> where T: GenericNode<T>, IComparable<T>
+public class BinarySearchTree<T> where T : GenericNode<T>, IComparable<T>
 {
     private int Count { get; set; }
     private GenericBasicTreeNode<T>? Root { get; set; }
 
-    
+
     public void InsertValue(T value)
     {
         GenericBasicTreeNode<T> toInsert = new() { Value = value };
@@ -16,18 +16,18 @@ public class BinarySearchTree<T> where T: GenericNode<T>, IComparable<T>
     private void InsertNode(GenericBasicTreeNode<T> node)
     {
         Count++;
-        
+
         if (Root is null)
         {
             Root = node;
             return;
         }
 
-        var currentNode = Root;    
-        
+        var currentNode = Root;
+
         while (true)
         {
-            if (currentNode.IsGreater(node) )
+            if (currentNode.IsGreater(node))
             {
                 if (currentNode.Left is not null)
                 {
@@ -53,7 +53,7 @@ public class BinarySearchTree<T> where T: GenericNode<T>, IComparable<T>
             }
         }
     }
-    
+
     // needed help https://www.youtube.com/watch?v=UcOxGmj45AA
     // got too caught up in tryna do this recursively without tracking parent while thinking i needed to track parent
     // video boinked me on the head with tracking parent and i felt dumb
@@ -79,10 +79,10 @@ public class BinarySearchTree<T> where T: GenericNode<T>, IComparable<T>
             isLeftChild = false;
             currentNode = currentNode.Right;
         }
-        
+
         if (currentNode is null) return false;
         if (!currentNode.IsEqual(value)) return false;
-        
+
         /*
          * Case 1 no children
          * Case 2 One Child
@@ -96,7 +96,7 @@ public class BinarySearchTree<T> where T: GenericNode<T>, IComparable<T>
                 Root = null;
                 return true;
             }
-            
+
             if (isLeftChild)
             {
                 parentNode.Left = null;
@@ -126,11 +126,11 @@ public class BinarySearchTree<T> where T: GenericNode<T>, IComparable<T>
                     Root = currentNode.Right;
                     return true;
                 }
-                
+
                 parentNode.Right = currentNode.Right;
                 return true;
             }
-            
+
             if (isLeftChild)
             {
                 if (currentNode == Root)
@@ -146,22 +146,24 @@ public class BinarySearchTree<T> where T: GenericNode<T>, IComparable<T>
                 Root = currentNode.Left;
                 return true;
             }
-                
+
             parentNode.Right = currentNode.Left;
             return true;
         }
-        
+
         // Two child case
-        
+
         var replacementNode = GetReplacementNode(currentNode);
 
         if (currentNode == Root)
         {
             Root = replacementNode;
-        } else if (isLeftChild)
+        }
+        else if (isLeftChild)
         {
             parentNode.Left = replacementNode;
-        }else
+        }
+        else
         {
             parentNode.Right = replacementNode;
         }
@@ -173,16 +175,16 @@ public class BinarySearchTree<T> where T: GenericNode<T>, IComparable<T>
 
     private static GenericBasicTreeNode<T> GetReplacementNode(GenericBasicTreeNode<T> replaceNode)
     {
-        var replacementParentNode = replaceNode; 
+        var replacementParentNode = replaceNode;
         var replacementNode = replaceNode;
-        
+
         var currentNode = replaceNode.Right;
-        
+
         while (currentNode is not null)
         {
             replacementParentNode = replacementNode;
-            replacementNode = currentNode; 
-            
+            replacementNode = currentNode;
+
             currentNode = currentNode.Left;
         }
 
@@ -191,11 +193,11 @@ public class BinarySearchTree<T> where T: GenericNode<T>, IComparable<T>
             replacementParentNode.Left = replacementNode.Right;
             replacementNode.Right = replaceNode.Right;
         }
-        
+
         return replacementNode;
     }
 
-    
+
     public List<T> PrintInOrder()
     {
         if (Root is not null) return PrintInOrderRecursively(Root, []);
@@ -219,7 +221,7 @@ public class BinarySearchTree<T> where T: GenericNode<T>, IComparable<T>
         }
         return printedValues;
     }
-    
+
     public List<T> PrintPreOrder()
     {
         if (Root is not null) return PrintPreOrderRecursively(Root, []);
@@ -241,11 +243,11 @@ public class BinarySearchTree<T> where T: GenericNode<T>, IComparable<T>
         {
             PrintPreOrderRecursively(currentNode.Right, printedValues);
         }
-        
+
         return printedValues;
     }
-    
-    
+
+
     public List<T> PrintPostOrder()
     {
         if (Root is not null) return PrintPostOrderRecursively(Root, []);

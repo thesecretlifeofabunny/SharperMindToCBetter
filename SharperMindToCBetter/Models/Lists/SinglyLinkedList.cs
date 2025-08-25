@@ -33,8 +33,8 @@ public class SinglyLinkedList
             Console.WriteLine("SingleLinkedList is empty");
             return;
         }
-        
-        var  current = Head;
+
+        var current = Head;
         if (current.Value == value)
         {
             if (current.Next is null)
@@ -69,7 +69,7 @@ public class SinglyLinkedList
                 Console.WriteLine("Value deleted");
                 return;
             }
-            
+
             current = current.Next;
         }
     }
@@ -81,7 +81,7 @@ public class SinglyLinkedList
             Console.WriteLine("List is empty");
             return [];
         }
-        
+
         List<int> printedList = [];
         var current = Head;
         var count = 0;

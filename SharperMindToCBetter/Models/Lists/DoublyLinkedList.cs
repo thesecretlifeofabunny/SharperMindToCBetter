@@ -2,7 +2,7 @@ using SharperMindToCBetter.Models.Nodes;
 
 namespace SharperMindToCBetter.Models.Lists;
 
-public class DoublyLinkedList 
+public class DoublyLinkedList
 {
     private DoublyLinkedNode? Head { get; set; }
     private DoublyLinkedNode? Tail { get; set; }
@@ -14,7 +14,7 @@ public class DoublyLinkedList
             Tail = Head;
             return;
         }
-        
+
         var toAddNode = new DoublyLinkedNode
         {
             Value = value,
@@ -31,8 +31,8 @@ public class DoublyLinkedList
             Console.WriteLine("Can't delete value because list is empty");
             return;
         }
-        
-        var current  = Head;
+
+        var current = Head;
         while (true)
         {
             if (current is null)
@@ -80,7 +80,7 @@ public class DoublyLinkedList
             current = current.Next;
         }
     }
-    
+
     public List<int> PrintList()
     {
         if (Head is null || Tail is null)
@@ -88,7 +88,7 @@ public class DoublyLinkedList
             Console.WriteLine("List is empty");
             return [];
         }
-        
+
         List<int> printedList = [];
         var current = Head;
         var count = 0;
@@ -106,5 +106,5 @@ public class DoublyLinkedList
     {
         Head = null;
         Console.WriteLine("List is now empty");
-    }    
+    }
 }

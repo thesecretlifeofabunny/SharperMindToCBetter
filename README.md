@@ -4,15 +4,15 @@ A learning project in C# 12 and .net 9.0 on Linux using various tools to learn D
 
 ## **Tools**
 ### **Desktop Setup**
-    - Arch linux on SwayWM
-    - Jetbrains Rider, Neovim, jjvcs (arch repo), dotnet core runtime and sdk
+    - NixOS on COSMIC (flake)
+    - Jetbrains Rider, Neovim, jujutsu, dotnet core runtime and sdk 8.0.3.xx
 ### **Laptop**
-    - Fedora Linux Workstation
-    - Jetbrains Rider, Neovim, jjvcs (cargo bin), dotnet core runtime and sdk
+    - NixOS on sway
+    - Jetbrains Rider, Neovim, jujutsu, dotnet core runtime and sdk 8.0.3.xx
 
 ## **Installation**
 
 To install Project Title, follow these steps:
 
-2. Start the project: **`dotnet run**
+2. Start the project: **`dotnet test**
 
